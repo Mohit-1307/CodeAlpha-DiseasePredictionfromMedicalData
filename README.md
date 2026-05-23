@@ -203,7 +203,7 @@ git clone https://github.com/Mohit-1307/CodeAlpha-DiseasePredictionfromMedicalDa
 ## 2️⃣ Navigate to Project Directory
 
 ```bash
-cd CodeAlpha_DiseasePrediction
+cd CodeAlpha_DiseasePredictionfromMedicalData
 ```
 
 ---
