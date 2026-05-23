@@ -195,7 +195,7 @@ CodeAlpha_DiseasePrediction/
 ## 1️⃣ Clone Repository
 
 ```bash
-git clone YOUR_GITHUB_REPOSITORY_LINK
+git clone https://github.com/Mohit-1307/CodeAlpha-DiseasePredictionfromMedicalData
 ```
 
 ---
