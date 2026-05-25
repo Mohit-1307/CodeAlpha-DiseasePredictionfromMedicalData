@@ -1,232 +1,141 @@
 <div align="center">
 
-# ❤️ Heart Disease Prediction System
+# Heart Disease Prediction System
 
-### End-to-End Machine Learning Project for Disease Prediction Using Medical Data
+[![Python](https://img.shields.io/badge/Python-3.10+-3670A0?style=flat-square&logo=python&logoColor=ffdd54)](https://python.org)
+[![scikit-learn](https://img.shields.io/badge/scikit--learn-F7931E?style=flat-square&logo=scikit-learn&logoColor=white)](https://scikit-learn.org)
+[![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=flat-square&logo=streamlit&logoColor=white)](https://streamlit.io)
+[![Pandas](https://img.shields.io/badge/Pandas-150458?style=flat-square&logo=pandas&logoColor=white)](https://pandas.pydata.org)
+[![NumPy](https://img.shields.io/badge/NumPy-013243?style=flat-square&logo=numpy&logoColor=white)](https://numpy.org)
+[![Status](https://img.shields.io/badge/Status-Completed-2ea44f?style=flat-square)]()
 
-<img src="https://img.shields.io/badge/Python-3.10+-blue?style=for-the-badge&logo=python">
-<img src="https://img.shields.io/badge/Machine%20Learning-Scikit--Learn-orange?style=for-the-badge&logo=scikitlearn">
-<img src="https://img.shields.io/badge/Frontend-Streamlit-red?style=for-the-badge&logo=streamlit">
-<img src="https://img.shields.io/badge/Data%20Analysis-Pandas-yellow?style=for-the-badge&logo=pandas">
-<img src="https://img.shields.io/badge/Visualization-Seaborn-green?style=for-the-badge">
-<img src="https://img.shields.io/badge/Status-Completed-success?style=for-the-badge">
+**End-to-end ML pipeline for heart disease risk prediction using patient medical data.**
 
-<br>
-
-### 🚀 Predict Heart Disease Risk Using Machine Learning
-
-An advanced machine learning system that analyzes patient medical attributes and predicts the probability of heart disease using classification algorithms and real-time inference.
+[Overview](#-overview) · [Pipeline](#-ml-pipeline) · [Dataset](#-dataset) · [Setup](#-installation) · [Usage](#-usage) · [Results](#-results)
 
 </div>
 
 ---
 
-# 📌 Table of Contents
+## Overview
 
-- Project Overview
-- Features
-- Tech Stack
-- Machine Learning Pipeline
-- Dataset Information
-- Project Structure
-- Installation
-- Model Training
-- Model Evaluation
-- Streamlit Deployment
-- Prediction System
-- Results
-- Future Improvements
-- Screenshots
-- Author
+Heart disease is among the leading causes of death worldwide. Early and accurate prediction can significantly improve treatment outcomes.
 
----
+This project implements a complete supervised learning pipeline — from raw medical data through EDA, feature engineering, multi-model training, evaluation, and a real-time Streamlit web interface for inference.
 
-# 🚀 Project Overview
-
-Heart disease is among the leading causes of death worldwide. Early prediction and diagnosis can significantly reduce risks and improve treatment outcomes.
-
-This project implements a complete end-to-end Machine Learning pipeline capable of:
-
-✅ Processing medical data  
-✅ Performing Exploratory Data Analysis (EDA)  
-✅ Training multiple classification models  
-✅ Evaluating model performance  
-✅ Saving trained models  
-✅ Deploying a real-time prediction system using Streamlit  
-
-The project demonstrates production-level ML workflow and software engineering practices.
-
----
-
-# ✨ Features
-
-<div align="center">
-
-| Feature | Description |
+| Capability | Details |
 |---|---|
-| 📊 EDA | Exploratory Data Analysis |
-| 📈 Visualization | Correlation Heatmaps & Graphs |
-| ⚙️ Preprocessing | Feature Scaling |
-| 🧠 ML Models | Logistic Regression, Random Forest, SVM |
-| 📉 Evaluation | Accuracy, F1, ROC-AUC |
-| 💾 Serialization | Joblib Model Saving |
-| 🌐 Deployment | Streamlit Web App |
-| ⚡ Real-Time Prediction | Instant Inference |
-
-</div>
+| EDA & Visualization | Correlation heatmaps, distribution plots, statistical summary |
+| Preprocessing | Missing value handling, StandardScaler feature normalization |
+| Models Trained | Logistic Regression, Random Forest, SVM |
+| Evaluation | Accuracy, Precision, Recall, F1, ROC-AUC, Confusion Matrix |
+| Persistence | Joblib serialization (`.pkl`) for model + scaler |
+| Deployment | Interactive Streamlit web app with real-time inference |
 
 ---
 
-# 🛠️ Tech Stack
+## ML Pipeline
 
-<div align="center">
-
-## 💻 Programming & Development
-
-<img src="https://skillicons.dev/icons?i=python,vscode,git,github"/>
-
----
-
-## 📚 Data Science & Machine Learning
-
-<img src="https://skillicons.dev/icons?i=tensorflow"/>
-
-<img src="https://img.shields.io/badge/Scikit--Learn-F7931E?style=for-the-badge&logo=scikitlearn&logoColor=white">
-<img src="https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white">
-<img src="https://img.shields.io/badge/NumPy-013243?style=for-the-badge&logo=numpy&logoColor=white">
-<img src="https://img.shields.io/badge/Matplotlib-11557c?style=for-the-badge">
-<img src="https://img.shields.io/badge/Seaborn-43B02A?style=for-the-badge">
-
----
-
-## 🌐 Deployment
-
-<img src="https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white">
-
-</div>
-
----
-
-# 🧠 Machine Learning Pipeline
-
-```text
-Medical Dataset
-       ↓
-Data Cleaning
-       ↓
-EDA & Visualization
-       ↓
-Feature Engineering
-       ↓
-Train-Test Split
-       ↓
-Feature Scaling
-       ↓
-Model Training
-       ↓
-Model Evaluation
-       ↓
-Best Model Selection
-       ↓
-Model Serialization
-       ↓
-Streamlit Deployment
+```
+Medical Dataset (UCI Heart Disease)
+         │
+         ▼
+  Data Cleaning & EDA          ← Missing values, distributions, correlations
+         │
+         ▼
+  Feature Engineering          ← Encoding, StandardScaler normalization
+         │
+         ▼
+  Train / Test Split
+         │
+         ▼
+  Model Training               ← Logistic Regression · Random Forest · SVM
+         │
+         ▼
+  Evaluation & Selection       ← Accuracy, F1, ROC-AUC, Confusion Matrix
+         │
+         ▼
+  Model Serialization          ← heart_model.pkl + scaler.pkl
+         │
+         ▼
+  Streamlit Deployment         ← Real-time prediction interface
 ```
 
 ---
 
-# 📊 Dataset Information
+## Dataset
 
-### Dataset Used:
-- Heart Disease Dataset
-- UCI Machine Learning Repository
+**Source:** [UCI Machine Learning Repository — Heart Disease Dataset](https://archive.ics.uci.edu/dataset/45/heart+disease)
 
----
-
-## 📋 Input Features
+### Input Features
 
 | Feature | Description |
 |---|---|
-| age | Age |
-| sex | Gender |
-| cp | Chest Pain Type |
-| trestbps | Resting Blood Pressure |
-| chol | Cholesterol |
-| fbs | Fasting Blood Sugar |
-| restecg | ECG Results |
-| thalach | Maximum Heart Rate |
-| exang | Exercise Angina |
-| oldpeak | ST Depression |
-| slope | Slope |
-| ca | Major Vessels |
-| thal | Thalassemia |
+| `age` | Patient age |
+| `sex` | Gender (0 = Female, 1 = Male) |
+| `cp` | Chest pain type (0–3) |
+| `trestbps` | Resting blood pressure (mm Hg) |
+| `chol` | Serum cholesterol (mg/dl) |
+| `fbs` | Fasting blood sugar > 120 mg/dl |
+| `restecg` | Resting ECG results |
+| `thalach` | Maximum heart rate achieved |
+| `exang` | Exercise-induced angina |
+| `oldpeak` | ST depression induced by exercise |
+| `slope` | Slope of peak exercise ST segment |
+| `ca` | Number of major vessels (0–3) |
+| `thal` | Thalassemia type |
+
+**Target:** `0` = No Disease · `1` = Disease Present
 
 ---
 
-# 📂 Project Structure
+## Project Structure
 
-```text
+```
 CodeAlpha_DiseasePrediction/
 │
 ├── data/
 │   └── heart.csv
 │
 ├── models/
-│   ├── heart_model.pkl
-│   └── scaler.pkl
+│   ├── heart_model.pkl        # Trained classifier
+│   └── scaler.pkl             # Fitted StandardScaler
 │
 ├── app/
-│   └── app.py
+│   └── app.py                 # Streamlit frontend
 │
 ├── notebooks/
-│   └── analysis.ipynb
+│   └── analysis.ipynb         # EDA and experimentation
 │
-├── train.py
-├── predict.py
+├── train.py                   # Training pipeline
+├── predict.py                 # CLI inference script
 ├── requirements.txt
-├── README.md
-└── .gitignore
+└── README.md
 ```
 
 ---
 
-# ⚙️ Installation
+## Installation
 
-## 1️⃣ Clone Repository
-
-```bash
-git clone https://github.com/Mohit-1307/CodeAlpha-DiseasePredictionfromMedicalData.git
-```
-
----
-
-## 2️⃣ Navigate to Project Directory
+### 1 · Clone the Repository
 
 ```bash
 cd CodeAlpha_DiseasePredictionfromMedicalData
 ```
 
----
-
-## 3️⃣ Create Virtual Environment
-
-### Windows
+### 2 · Create & Activate Virtual Environment
 
 ```bash
+# Windows
 python -m venv venv
-```
-
----
-
-## 4️⃣ Activate Virtual Environment
-
-```bash
 venv\Scripts\activate
+
+# Linux / macOS
+python3 -m venv venv
+source venv/bin/activate
 ```
 
----
-
-## 5️⃣ Install Dependencies
+### 3 · Install Dependencies
 
 ```bash
 pip install -r requirements.txt
@@ -234,223 +143,95 @@ pip install -r requirements.txt
 
 ---
 
-# ▶️ Run Project
+## Usage
 
-## 🔥 Train Model
+### Train Models
 
 ```bash
 python train.py
 ```
 
-This will:
-- preprocess dataset
-- scale features
-- train models
-- evaluate models
-- save trained model
-- generate `.pkl` files
+Runs the full pipeline: preprocessing → feature scaling → training → evaluation → saves `heart_model.pkl` and `scaler.pkl` to `models/`.
 
----
-
-## 🔍 Run Prediction
+### CLI Prediction
 
 ```bash
 python predict.py
 ```
 
----
-
-## 🌐 Launch Streamlit App
+### Streamlit Web App
 
 ```bash
 streamlit run app/app.py
+# → http://localhost:8501
 ```
 
 ---
 
-# 🧠 Machine Learning Models
+## Results
 
-<div align="center">
+| Model | Accuracy | Notes |
+|---|---|---|
+| Logistic Regression | 84–87% | Baseline linear classifier |
+| Random Forest | 88–92% | Best performer; also provides feature importance |
+| SVM | 85–90% | Strong non-linear boundary detection |
 
-| Model | Purpose |
-|---|---|
-| Logistic Regression | Baseline Linear Classifier |
-| Random Forest | Ensemble Tree-Based Learning |
-| Support Vector Machine | Non-Linear Classification |
+**Evaluation metrics used:** Accuracy · Precision · Recall · F1-Score · ROC-AUC · Confusion Matrix
 
-</div>
-
----
-
-# 📈 Evaluation Metrics
-
-The project uses advanced evaluation metrics:
-
-✅ Accuracy Score  
-✅ Precision  
-✅ Recall  
-✅ F1-Score  
-✅ ROC-AUC Score  
-✅ Confusion Matrix  
+**Best model selected** automatically based on ROC-AUC and serialized for deployment.
 
 ---
 
-# 📉 Feature Scaling
+## Key Technical Decisions
 
-Feature scaling is performed using:
+**Why StandardScaler?**
+SVM and Logistic Regression are sensitive to feature magnitude. Standardizing ensures stable gradient convergence and fair distance-based comparisons.
 
-```python
-StandardScaler()
-```
+**Why Random Forest as the primary model?**
+Handles non-linear feature interactions, is robust to outliers, and provides feature importance scores — critical for interpretability in a medical context.
 
-This standardizes feature distributions and improves model convergence.
-
----
-
-# 💾 Model Persistence
-
-The trained model and scaler are serialized using Joblib.
-
-```text
-models/
-├── heart_model.pkl
-└── scaler.pkl
-```
+**Why ROC-AUC over plain accuracy?**
+Medical datasets are often class-imbalanced. ROC-AUC measures discrimination ability across all classification thresholds, making it a more reliable metric than raw accuracy.
 
 ---
 
-# 🌐 Streamlit Web Application
+## Future Improvements
 
-The project includes a fully interactive web interface.
-
-## Features
-
-✅ Real-time prediction  
-✅ User-friendly interface  
-✅ Medical parameter input  
-✅ Instant inference  
-✅ Prediction probability display  
+- [ ] Hyperparameter tuning (GridSearchCV / Optuna)
+- [ ] XGBoost and LightGBM integration
+- [ ] SHAP explainability for clinical transparency
+- [ ] FastAPI backend for REST inference endpoint
+- [ ] Docker containerization
+- [ ] Cloud deployment (AWS / Azure)
+- [ ] CI/CD pipeline (GitHub Actions)
 
 ---
 
-# 📊 Exploratory Data Analysis
+## Submission Checklist
 
-EDA includes:
-
-- Missing value analysis
-- Correlation heatmaps
-- Feature distribution
-- Statistical summary
-- Disease distribution analysis
-
----
-
-# 🔥 Feature Importance
-
-Random Forest feature importance identifies the most influential medical parameters contributing to disease prediction.
+- [x] Complete source code
+- [x] Dataset included
+- [x] Trained model artifacts
+- [x] Streamlit deployment
+- [x] README documentation
+- [x] GitHub repository
+- [x] LinkedIn explanation video
 
 ---
 
-# 📦 requirements.txt
+## Author
 
-```txt
-pandas
-numpy
-matplotlib
-seaborn
-scikit-learn
-joblib
-streamlit
-```
+**Mohit Singh Rajput** — AI / ML Engineer
 
----
-
-# 📸 Screenshots
-
-## 🏠 Streamlit Home Page
-
-<img width="100%" src="https://raw.githubusercontent.com/streamlit/streamlit/develop/examples/dogfood/streamlit_app.png">
-
----
-
-## 📊 Correlation Heatmap
-
-<img width="100%" src="https://miro.medium.com/v2/resize:fit:1400/1*9qqq8h0x4uD6nK1Rz6B0FA.png">
-
----
-
-# 🚀 Future Improvements
-
-- Hyperparameter Tuning
-- XGBoost Integration
-- Deep Learning Models
-- SHAP Explainability
-- Docker Deployment
-- FastAPI Backend
-- Cloud Deployment
-- CI/CD Pipelines
-
----
-
-# 📚 Learning Outcomes
-
-This project demonstrates:
-
-✅ End-to-End ML Workflow  
-✅ Data Preprocessing  
-✅ Model Training  
-✅ Feature Scaling  
-✅ Evaluation Metrics  
-✅ Deployment Pipeline  
-✅ Streamlit Integration  
-✅ Software Engineering Practices  
-
----
-
-# 📌 Internship Submission Checklist
-
-- [x] Complete Source Code
-- [x] Dataset Included
-- [x] Trained Model
-- [x] Streamlit Deployment
-- [x] README Documentation
-- [x] GitHub Repository
-- [x] LinkedIn Explanation Video
-
----
-
-# 📊 Expected Accuracy
-
-| Model | Accuracy |
-|---|---|
-| Logistic Regression | 84% - 87% |
-| Random Forest | 88% - 92% |
-| SVM | 85% - 90% |
-
----
-
-# 👨‍💻 Author
-
-## Mohit
-
-Machine Learning Engineer | AI Enthusiast | Python Developer
-
----
-
-# ⭐ Support
-
-If you found this project useful:
-
-⭐ Star the repository  
-🍴 Fork the project  
-📢 Share it with others  
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=flat-square&logo=linkedin&logoColor=white)](https://linkedin.com/in/mohitsingh1307)
+[![GitHub](https://img.shields.io/badge/GitHub-121011?style=flat-square&logo=github&logoColor=white)](https://github.com/Mohit-1307)
+[![Kaggle](https://img.shields.io/badge/Kaggle-20BEFF?style=flat-square&logo=kaggle&logoColor=white)](https://www.kaggle.com/mohitsinghrajput1307)
+[![Email](https://img.shields.io/badge/Email-D14836?style=flat-square&logo=gmail&logoColor=white)](mailto:mohitsinghdausa@gmail.com)
 
 ---
 
 <div align="center">
 
-# ❤️ Thank You
-
-### Made with Python, Machine Learning & Streamlit
+*If this project was useful, a ⭐ on the repository is appreciated.*
 
 </div>
