@@ -120,7 +120,8 @@ CodeAlpha_DiseasePrediction/
 ### 1 · Clone the Repository
 
 ```bash
-cd CodeAlpha_DiseasePredictionfromMedicalData
+git clone https://github.com/Mohit-1307/CodeAlpha-DiseasePredictionfromMedicalData.git
+cd CodeAlpha-DiseasePredictionfromMedicalData
 ```
 
 ### 2 · Create & Activate Virtual Environment
@@ -221,7 +222,7 @@ Medical datasets are often class-imbalanced. ROC-AUC measures discrimination abi
 
 ## Author
 
-**Mohit Singh Rajput** — AI / ML Engineer
+**MOHIT SINGH RAJPUT** — AI / ML Engineer
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=flat-square&logo=linkedin&logoColor=white)](https://linkedin.com/in/mohitsingh1307)
 [![GitHub](https://img.shields.io/badge/GitHub-121011?style=flat-square&logo=github&logoColor=white)](https://github.com/Mohit-1307)
